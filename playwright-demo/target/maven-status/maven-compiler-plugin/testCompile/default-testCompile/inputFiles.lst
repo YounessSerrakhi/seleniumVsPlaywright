@@ -1,1 +1,4 @@
-/Users/serrakhi/samples/seleniumVsPlaywright/playwright-demo/src/test/java/com/emp/playwrightdemo/LoginTest.java
+/Users/serrakhi/samples/seleniumVsPlaywright/playwright-demo/src/test/java/com/emp/playwrightdemo/BasePlaywrightTest.java
+/Users/serrakhi/samples/seleniumVsPlaywright/playwright-demo/src/test/java/com/emp/playwrightdemo/ChromiumLoginTest.java
+/Users/serrakhi/samples/seleniumVsPlaywright/playwright-demo/src/test/java/com/emp/playwrightdemo/FirefoxLoginTest.java
+/Users/serrakhi/samples/seleniumVsPlaywright/playwright-demo/src/test/java/com/emp/playwrightdemo/WebkitLoginTest.java
