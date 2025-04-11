@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Login Page</title>
+  <script>
+    function generateToken() {
+      return 'token_' + Math.random().toString(36).substr(2);
+    }
+
+    function isLoggedIn() {
+      return sessionStorage.getItem("accessToken") !== null;
+    }
+
+    function showProtectedContent() {
+      document.body.innerHTML = `
+        <h2>Dashboard</h2>
+        <p id="message">You're logged in</p>
+        <button onclick="logout()">Logout</button>
+      `;
+    }
+
+    function logout() {
+      sessionStorage.removeItem("accessToken");
+      location.reload();
+    }
+
+    window.onload = function () {
+      if (isLoggedIn()) {
+        showProtectedContent();
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Login</h2>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" value="Login">
+  </form>
+  <div id="message"></div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      if (username === "testuser" && password === "testpass") {
+        const token = generateToken();
+        sessionStorage.setItem("accessToken", token);
+        showProtectedContent();
+      } else {
+        document.getElementById("message").innerHTML = "<p style='color:red;'>Invalid credentials</p>";
+      }
+    });
+  </script>
+</body>
+</html>
